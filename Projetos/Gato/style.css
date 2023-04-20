@@ -1,0 +1,103 @@
+:root{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: #b7a791;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 20px;
+}
+
+.container{
+    max-width: 980px; /*Largura máxima, encolhe se necessário*/
+    margin: auto; /*Centralizado*/
+    background-color: rgb(255, 255, 255);
+    
+}
+
+nav, main, section{
+    box-sizing: border-box; /*contabilizar o padding na largura*/
+    padding: 20px;
+    margin: 20px;
+    line-height: 1.8;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/* ---------------------------------Menu--------------------------------- */
+nav{
+    width: 100%;
+    background-color: #919db7;
+    position: sticky;
+    top: 0;
+    align-items: center;
+    display: flex;
+    height: 70px;
+    margin: 0px;
+    padding-left: 50px;
+}
+
+ul#cabecalho{
+    display: flex;
+    padding-left: 25%;
+}
+
+ul{
+    list-style-type: none;
+}
+
+li{
+    display: inline-block;
+    margin: 0 10px;
+    font-size: larger;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+a:hover{
+    color: rgb(59, 9, 9);
+}
+
+.logo img{
+    display: flex;
+    justify-content: flex-start;
+    width: 80px;
+    height: 80px;
+}
+/* ---------------------------------Fim menu------------------------------- */
+h1{
+    color: rgb(165, 23, 23);
+    font-size:xx-large;
+    font-weight: bolder;
+    margin-top: -15px;
+}
+
+h2{
+    font-size: x-large;
+    font-weight: bolder;
+    margin-top: 40px;
+}
+
+main#home p{
+    margin-bottom: -50px ;
+}
+
+main, section{
+    background-color: transparent;
+    text-align: justify;
+}
+
+/* ---------------------------------Footer--------------------------------- */
+footer {
+    background-color: #919db7;
+    justify-content: center ;
+    display: flex;
+    align-items: center;
+    padding-bottom: -100px;
+}

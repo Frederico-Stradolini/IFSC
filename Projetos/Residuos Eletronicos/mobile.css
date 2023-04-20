@@ -1,0 +1,47 @@
+
+	nav {
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+	}
+	
+	nav ul {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background-color: #333;
+		width: 100%;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.3s ease-in-out;
+	}
+	
+	nav ul.active {
+		opacity: 1;
+		visibility: visible;
+	}
+	
+	nav li {
+		margin: 10px 0;
+	}
+	
+	nav .menu-toggle {
+		order: -1;
+		display: block;
+		padding: 10px;
+		color: #fff;
+		font-size: 20px;
+		cursor: pointer;
+	}
+
+    main {
+        margin: 20px;
+        flex-basis: 100%;
+        padding: 20px;
+    }
+    .aside {
+    float: none;
+}
