@@ -1,47 +1,51 @@
+main img {
+	margin-bottom: 20px;
+}
 
-	nav {
-		flex-direction: column;
-		align-items: flex-start;
-		justify-content: center;
-	}
-	
-	nav ul {
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		position: absolute;
-		top: 100%;
-		left: 0;
-		background-color: #333;
-		width: 100%;
-		opacity: 0;
-		visibility: hidden;
-		transition: all 0.3s ease-in-out;
-	}
-	
-	nav ul.active {
-		opacity: 1;
-		visibility: visible;
-	}
-	
-	nav li {
-		margin: 10px 0;
-	}
-	
-	nav .menu-toggle {
-		order: -1;
-		display: block;
-		padding: 10px;
-		color: #fff;
-		font-size: 20px;
-		cursor: pointer;
-	}
+aside{
+    background-color: #f1f1f1;
+    text-align: center;
+    display: none;
+}
+ p:not(header p){
+    text-align: justify;
+    line-height: 160%;
+}
 
-    main {
-        margin: 20px;
-        flex-basis: 100%;
-        padding: 20px;
-    }
-    .aside {
-    float: none;
+hr{
+    border:1px solid #CCC;
+    margin:50px 0
+}
+
+main{
+    background-color: white;
+    /* padding:40px; */
+}
+
+/* -----------------------------Menu Hamburger--------------------------------- */
+
+nav > a {
+    display: block;
+    text-align: right;
+}
+
+nav div {
+    flex-direction: column;
+    text-align: right;
+    transform: translateX(-100%);
+    width: 100%;
+    position: absolute;
+    transition: transform 1s;
+}
+
+#nav:target div {
+    transform: translateX(0);
+}
+
+#nav:target > a {
+    display: none;
+}
+
+#nav:target #close {
+    display: block;
 }
