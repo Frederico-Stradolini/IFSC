@@ -6,7 +6,7 @@ class Ordenar:
     # valores = int(input('Gerar valores de 0 até: '))
     # tamanho = int(input('Digite o tamanho do vetor: '))
     a=Algoritmos_sort()
-    v=vetor(1000,1000)
+    v=vetor(20,32)
     
     tempo_total = 0
     tempos_medios = []

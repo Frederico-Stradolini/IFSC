@@ -1,4 +1,3 @@
-import numpy as np
 from Vetor import vetor
 
 class Algoritmos_sort:
@@ -31,47 +30,62 @@ class Algoritmos_sort:
                 j -= 1
             vetor[j + 1] = chave
 
-    def shell_sort(self, lista):
-        n = len(lista)
+    def shell_sort(self, vetor):
+        n = len(vetor)
         h = 1
         while h < n // 3:
             h = 3 * h + 1
         while h >= 1:
             for i in range(h, n):
-                chave = lista[i]
+                chave = vetor[i]
                 j = i
-                while j >= h and lista[j - h] > chave:
-                    lista[j] = lista[j - h]
+                while j >= h and vetor[j - h] > chave:
+                    vetor[j] = vetor[j - h]
                     j -= h
-                lista[j] = chave
+                vetor[j] = chave
             h //= 3
     
-    def merge_sort(self, lista, inicio=0, fim=None):
-        if fim is None:
-            fim = len(lista)
-        if(fim - inicio > 1):
-            meio = (fim + inicio)//2
-            self.merge_sort(lista, inicio, meio)
-            self.merge_sort(lista, meio, fim)
-            self.merge(lista, inicio, meio, fim)
+    def merge_sort(self, vetor):
+        # Caso base: se o vetor tiver tamanho 1, retorna o próprio vetor.
+        if len(vetor) <= 1:
+            return vetor
 
-    def merge(self, lista, inicio, meio, fim):
-        left = lista[inicio:meio]
-        right = lista[meio:fim]
-        top_left, top_right = 0, 0
-        for k in range(inicio, fim):
-            if top_left >= len(left):
-                lista[k] = right[top_right]
-                top_right = top_right + 1
-            elif top_right >= len(right):
-                lista[k] = left[top_left]
-                top_left = top_left + 1
-            elif left[top_left] < right[top_right]:
-                lista[k] = left[top_left]
-                top_left = top_left + 1
+        # Divide o vetor ao meio, separando em left e right.
+        mid = len(vetor) // 2
+        left = vetor[:mid]
+        right = vetor[mid:]
+
+        # Chamada recursiva para dividir os subvetores. Cria uma nova instância da função, com suas próprias variáveis e parâmentros, gerando uma pilha de instâncias.
+        left = self.merge_sort(left)
+        right = self.merge_sort(right)
+
+        # Retorna a combinação dos subvetores ordenados.
+        return self.merge(left, right)
+
+    def merge(self, left, right):
+        merged = []
+        i = j = 0
+
+        # Comparação e mesclagem dos elementos dos subvetores.
+        while i < len(left) and j < len(right):
+            if left[i] < right[j]:
+                merged.append(left[i])
+                i += 1
             else:
-                lista[k] = right[top_right]
-                top_right = top_right + 1
+                merged.append(right[j])
+                j += 1
+
+        # Adiciona os elementos restantes de left, se houver.
+        while i < len(left):
+            merged.append(left[i])
+            i += 1
+        # Adiciona os elementos restantes de right, se houver.
+        while j < len(right):
+            merged.append(right[j])
+            j += 1
+        # print(merged)
+        return merged
+
 
     def quick_sort(self, lista, inicio=0, fim=None):
         if fim is None:
