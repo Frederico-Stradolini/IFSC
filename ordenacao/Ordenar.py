@@ -3,10 +3,10 @@ from Algoritmos import Algoritmos_sort
 from Vetor import vetor
 
 class Ordenar:
-    # valores = int(input('Gerar valores de 0 até: '))
-    # tamanho = int(input('Digite o tamanho do vetor: '))
+    valores = int(input('Gerar valores de 0 até: '))
+    tamanho = int(input('Digite o tamanho do vetor: '))
     a=Algoritmos_sort()
-    v=vetor(20,32)
+    v=vetor(valores,tamanho)
     
     tempo_total = 0
     tempos_medios = []
