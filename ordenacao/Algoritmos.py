@@ -86,21 +86,41 @@ class Algoritmos_sort:
         # print(merged)
         return merged
 
+    def quick_sort(self, arr):
+        if len(arr) <= 1:
+            return arr
+        
+        stack = []
+        stack.append((0, len(arr) - 1))
+        
+        while stack:
+            start, end = stack.pop()
+            pivot_index = self.partition(arr, start, end)
+            
+            if pivot_index - 1 > start:
+                stack.append((start, pivot_index - 1))
+            
+            if pivot_index + 1 < end:
+                stack.append((pivot_index + 1, end))
+        
+        return arr
 
-    def quick_sort(self, lista, inicio=0, fim=None):
-        if fim is None:
-            fim = len(lista)-1
-        if inicio < fim:
-            p = self.partition(lista, inicio, fim)
-            self.quick_sort(lista, inicio, p-1)
-            self.quick_sort(lista, p+1, fim)
-
-    def partition(self, lista, inicio, fim):
-        pivot = lista[fim]
-        i = inicio
-        for j in range(inicio, fim):
-            if lista[j] <= pivot:
-                lista[j], lista[i] = lista[i], lista[j]
-                i = i + 1
-        lista[i], lista[fim] = lista[fim], lista[i]
-        return i
+    def partition(self, arr, start, end):
+        pivot = arr[start]
+        left = start + 1
+        right = end
+        
+        while True:
+            while left <= right and arr[left] <= pivot:
+                left += 1
+            
+            while right >= left and arr[right] >= pivot:
+                right -= 1
+            
+            if right < left:
+                break
+            
+            arr[left], arr[right] = arr[right], arr[left]
+    
+        arr[start], arr[right] = arr[right], arr[start]
+        return right
